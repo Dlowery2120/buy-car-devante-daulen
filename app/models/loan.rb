@@ -1,0 +1,2 @@
+Loan < ActiveRecord::Base
+end

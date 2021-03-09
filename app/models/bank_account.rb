@@ -1,0 +1,2 @@
+BankAccount < ActiveRecord::Base
+end

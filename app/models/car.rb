@@ -1,0 +1,2 @@
+Car < ActiveRecord::Base
+end

@@ -1,0 +1,2 @@
+Dealership < ActiveRecord::Base
+end

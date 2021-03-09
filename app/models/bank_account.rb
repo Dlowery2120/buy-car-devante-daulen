@@ -1,2 +1,3 @@
-BankAccount < ActiveRecord::Base
+class BankAccount < ActiveRecord::Base
+    has_many :loans
 end

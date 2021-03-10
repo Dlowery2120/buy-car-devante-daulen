@@ -1,4 +1,4 @@
-class CreateDealerships < ActiveRecord::Migration[6.1]
+class CreateDealerships < ActiveRecord::Migration[5.2]
   def change
     create_table :dealerships do |t|
       t.string :brand

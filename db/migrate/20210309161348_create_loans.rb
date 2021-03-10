@@ -1,4 +1,4 @@
-class CreateLoans < ActiveRecord::Migration[6.1]
+class CreateLoans < ActiveRecord::Migration[5.2]
   def change
     create_table :loans do |t|
       t.integer :user_id

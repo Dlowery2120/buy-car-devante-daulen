@@ -1,13 +1,42 @@
 require_relative './config/environment.rb'
 
-puts "Hello! Let's buy a car"
 
-def welcome
-    title = Artii::Base.new(:font => "slant")
-    puts "Welcome to:"
-    puts title.asciify("The Great Car!")
+def all_dealerships
+   all_dealerships 
 end
-welcome
+
+all_dealerships
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def welcome
+#     title = Artii::Base.new(:font => "slant")
+#     puts "Welcome to:"
+#     puts title.asciify("The Store")
+# end
+
 # def login
 #     users = User.all.map {|user| user.name}
 #     prompt = TTY::Prompt.new

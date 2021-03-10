@@ -29,3 +29,4 @@ User can arrange loan
 #### Stretch Goals
 User has a login capability
 User can buy additional warranty
+User can see Welcome messageclear

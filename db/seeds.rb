@@ -13,7 +13,7 @@ car1 = Car.create(make: "Ford", price: 15000)
 car2 = Car.create(make: "Nissan", price: 10000)
 
 dealearship1 = Dealership.create(brand: "Texasdirectauto")
-dealearship2 = dealearship.create(brand:"Carmax")
+dealearship2 = Dealership.create(brand:"Carmax")
 
 bank_account1 = BankAccount.create(balance:6000)
 bank_account2 = BankAccount.create(balance:4000)

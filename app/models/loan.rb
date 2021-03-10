@@ -1,4 +1,4 @@
 class Loan < ActiveRecord::Base
-    belongs_to :cars
-    belongs_to :bank_accounts
+    belongs_to :car
+    belongs_to :bank_account
 end

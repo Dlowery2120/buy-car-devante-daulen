@@ -6,7 +6,7 @@ Loan.destroy_all
 
 
 
-angelo = User.create(name: "angelo", credit_score: 800)
+angelo = User.create(name: "angelo", credit_score: 700)
 daulen = User.create(name: "daulen", credit_score: 600)
 
 car1 = Car.create(make: "Ford", price: 15000)
@@ -21,6 +21,7 @@ bank_account3 = BankAccount.create(balance:50000)
 
 # Loan.create(user_id: angelo.id, car_id: car1.id)
 Loan.create(user_id: angelo.id, car_id: car1.id, dealership_id: dealership1.id, bank_account_id: bank_account1.id)
+Loan.create(user_id: daulen.id, car_id: car2.id, dealership_id: dealership2.id, bank_account_id: bank_account2.id)
 # Loan.create(user_id: daulen.id, car_id: car2.id)
 #Purchase.create(user_id: angelo.id, item_id: fancy_pants.id)
 

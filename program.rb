@@ -1,14 +1,58 @@
 require_relative './config/environment.rb'
+def welcome
+title = Artii::Base.new(:font => "slant")
+   puts "Welcome to:"
+   puts title.asciify("Great Car")
+end
+welcome
 
+def login
+   prompt = TTY::Prompt.new
+   prompt.select("Choose your destini)")
+   puts "please login"
+end
+login
 
-def all_dealerships
-   all_dealerships 
+def cars
+   #User can browse all cars 
+   Car.all.map do|object|
+   object.make
+   end
+end
+puts cars
+
+def dealerships
+   # User can browse all Dealerships
+   Dealership.all.map do |object|
+      object.brand
+   end
+end
+puts dealerships
+
+def loans
+   BankAccount.all.map do |object|
+      object.balance
+   end
 end
 
-all_dealerships
+puts loans
 
 
 
+
+puts "program is running"
+
+
+
+# #### MVP
+# User can browse all cars (done)
+# User can browse all Dealerships (done)
+# Loan can check Bank Account
+# User can arrange loan
+# #### Stretch Goals
+# User has a login capability
+# User can buy additional warranty
+# User is greeted with Welcome message
 
 
 

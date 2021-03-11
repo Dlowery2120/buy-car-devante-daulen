@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
-    has_many :purchases 
-    has_many :items, :through => :purchases 
+    has_many :bank_accounts 
+    has_many :loans
+    
+    has_many :cars, :through => :loans
 end
-# git checkout master
-# git pull
-# git checkout (their branch name)
-# git merge master

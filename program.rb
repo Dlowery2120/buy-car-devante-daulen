@@ -1,17 +1,5 @@
 require_relative './config/environment.rb'
 
-def cars
-   puts Car.all.map {|obj| obj.make}
-end
-
-
-def dealerships
-   puts Dealership.all.map {|obj| obj.brand}
-end
-
-def new_user
-new_user = User.create(name: "Devante", credit_score: 1000)
-end 
 
 def welcome
     title = Artii::Base.new(:font => "slant")
@@ -19,7 +7,10 @@ def welcome
     puts title.asciify("My 64")
 end
 
-def login
+
+
+def buy_car
+
    cars = Car.all.map {|car| car.make}
    prices = Car.all.map {|car| car.price}
    prompt = TTY::Prompt.new
@@ -27,13 +18,8 @@ def login
    puts "We'll have you cruising in no time!!"
    
 
-   login_choice = prompt.select("Choose your local dealership!", [
-      "Texas Direct Auto",
-      "Car Max",
-      "Car Cabanna",
-      "Wheel Deal",
-      "Elite Cars",
-      "Exit"])
+   choose_dealership = prompt.select("Choose your local dealership!", [
+      "Texas Direct Auto", "Car Max", "Car Cabanna", "Wheel Deal", "Exit"])
    car_choice = prompt.select("Here's what we got!", 
       "#{cars[rand(cars.length)]}: #{prices[rand(prices.length)]}",
       "#{cars[rand(cars.length)]}: #{prices[rand(prices.length)]}",
@@ -51,6 +37,8 @@ def login
       if (loan_choice == "Yes")
          loan_name = prompt.ask("What is your name?:") 
          loan_credit = prompt.ask("What is your credit score?:").to_i
+         
+            sleep(1)
          loan_user = User.create(name: loan_name, credit_score: loan_credit)
             while loan_credit < 600
                puts "SORRY, #{loan_credit} is too low!"
@@ -61,35 +49,94 @@ def login
             end
          car_price = car_choice.delete("^0-9").to_i
          downpayment = prompt.ask("Please enter downpayment:").to_i
-            while downpayment < car_price * 0.20
+            while downpayment < (car_price * 0.20)
                puts "Less than required payment!!!"
-               downpayment = prompt.ask("Please enter downpayment amount:").to_i
-               if (downpayment > car_price * 0.20)
+               downpayment = prompt.ask("Please enter downpayment amount(Must be atleast 20%)").to_i
+               if downpayment > (car_price * 0.20)
                   puts "Got it!"
+                  sleep(1)
                end
             end
 
          bank_balance1 = prompt.ask("Enter Bank Balance:").to_i
-            if (bank_balance < downpayment)
+            while (bank_balance1 < downpayment)
                puts "Not enough money in your account"
                bank_balance1 = prompt.ask("Enter Bank Balance:").to_i
-            elsif (bank_balance > downpayment)
-               puts "Verifying balance...."
-               balance = BankAccount.create(balance: bank_balance1)
+               if(bank_balance1 > downpayment)
+                  puts "Verifying balance...."
+                  balance = BankAccount.create(balance: bank_balance1)
+                  sleep(2)
+                  puts "Loan has been finalized. Thanks for shopping with us and enjoy your new car!"
+               end
             end
+            sleep(1.5)
       elsif (loan_choice == "No")
+         car_price = car_choice.delete("^0-9").to_i
          bank_balance2 = prompt.ask("Enter Bank Balance:").to_i   
          if (bank_balance2 < car_price)
             puts "Not enough money in your account"
             bank_balance2 = prompt.ask("Enter Bank Balance:").to_i
-         elsif (bank_balance2 > downpayment)
+         elsif (bank_balance2 > car_price)
+            sleep(1.5)
             puts "Verifying balance...."
-            balance = BankAccount.create(balance: bank_balance1)
+            sleep(1.5)
+            balance2 = BankAccount.create(balance: bank_balance2)
          end
-               puts "Buying car!" #Loan.create()
+            puts "Thanks for shopping with us and enjoy your new car!"
       end
 end
 
+welcome
+buy_car
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def menu 
+#    prompt = TTY::Prompt.new
+#    menu_choices = prompt.select("What would you like to do?", ["make a loan", "make a payment", "exit"])
+#    if menu_choices == "make a loan"
+#       puts "Devante make a loan method and put it here"
+#       menu
+#    elsif menu_choices == "make a payment"
+#       puts "Devante make a payment method and put it here"
+#       menu
+#    elsif menu_choices == "exit"
+#       exit!
+#    end
+# end
+
+
+
+
+
+
+
+# def create_loan
+#       loan_name = prompt.ask("What is your name?:") 
+#       loan_credit = prompt.ask("What is your credit score?:").to_i
+#       loan_user = User.create(name: loan_name, credit_score: loan_credit)
+#          while loan_credit < 600
+#             puts "SORRY, #{loan_credit} is too low!"
+#             loan_choice = prompt.select("Do you need a loan?", ["Yes", "No"])
+#             if (loan_choice == "No")
+#                exit! 
+#             end
+#          end
+# end
 
 
             # bank_balance = prompt.ask("Enter Bank Balance:").to_i
@@ -99,12 +146,6 @@ end
             # else 
             #    puts "Not enough money in your account"
             # end
-
-
-welcome
-login
-
-
 
 
 

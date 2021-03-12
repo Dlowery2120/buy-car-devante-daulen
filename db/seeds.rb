@@ -4,10 +4,11 @@ Dealership.destroy_all
 BankAccount.destroy_all
 Loan.destroy_all
 
-
-
 angelo = User.create(name: "angelo", credit_score: 800)
 daulen = User.create(name: "daulen", credit_score: 600)
+devante = User.create(name: "devante", credit_score: 550)
+susan = User.create(name: "susan", credit_score: 450)
+jack = User.create(name: "jack", credit_score: 650)
 
 car1 = Car.create(make: "Rolls-Royce Wraith", price: 400000)
 car2 = Car.create(make: "Tesla Cybertruck", price: 100000)
@@ -29,12 +30,14 @@ dealership4 = Dealership.create(brand:"Wheel Deal")
 dealership5 = Dealership.create(brand:"Elite Cars")
 
 bank_account1 = BankAccount.create(balance:6000, user_id: angelo.id)
-bank_account2 = BankAccount.create(balance:4000, user_id: daulen.id)
+bank_account2 = BankAccount.create(balance:4000, user_id: devante.id)
 bank_account3 = BankAccount.create(balance:50000, user_id: daulen.id)
 
-# Loan.create(user_id: angelo.id, car_id: car1.id)
-Loan.create(user_id: angelo.id, car_id: car1.id, dealership_id: dealership1.id)
-# Loan.create(user_id: daulen.id, car_id: car2.id)
-#Purchase.create(user_id: angelo.id, item_id: fancy_pants.id)
+
+loan1 = Loan.create(user_id: angelo.id, car_id: car1.id, dealership_id: dealership1.id)
+loan2 = Loan.create(user_id: susan.id, car_id: car2.id, dealership_id: dealership2.id)
+loan3 = Loan.create(user_id: devante.id, car_id: car7.id, dealership_id: dealership3.id)
+loan4 = Loan.create(user_id: daulen.id, car_id: car6.id, dealership_id: dealership5.id)
+
 
 puts "🌱🌱🌱Seed🌱🌱🌱"

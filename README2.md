@@ -27,5 +27,3 @@ User can browse all Dealerships
 Loan can check Bank Account
 User can arrange loan
 #### Stretch Goals
-User has a login capability
-User can buy additional warranty

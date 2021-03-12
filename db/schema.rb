@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_03_09_161348) do
   create_table "loans", force: :cascade do |t|
     t.integer "user_id"
     t.integer "car_id"
-    t.integer "bank_account_id"
     t.integer "dealership_id"
   end
 

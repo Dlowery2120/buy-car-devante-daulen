@@ -1,6 +1,6 @@
-# Car Loan App
+# Buy Car App
 Car loan app is a cli application that allows User to select a car, 
-arrange loan, and see if qualified
+arrange loan, see if qualified, and buy a car.
 ## Models
 * User 
 * Loan 
@@ -20,8 +20,8 @@ Dealership has many Users
 
 ### User Stories
 #### MVP 
-User can browse all cars
 User can browse all Dealerships
-Loan can check Bank Account
+User can browse all cars
 User can arrange loan
-#### Stretch Goals
+
+

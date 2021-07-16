@@ -4,7 +4,6 @@
 
 ## Features
 
-
 ## Tech Stack
 This web app makes use of the following:
 
